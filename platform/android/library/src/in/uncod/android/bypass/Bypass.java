@@ -52,9 +52,10 @@ public class Bypass {
                 && element.getParent().getType() != Type.BLOCK_CODE) {
 			text = text.replace('\n', ' ');
 		}
-		if (element.getParent() != null
+		if ((element.getParent() != null
 				&& element.getParent().getType() == Type.LIST_ITEM
-				&& element.getType() == Type.LIST) {
+				&& element.getType() == Type.LIST)
+                || element.getType() == Type.LINEBREAK) {
 			builder.append("\n");
 		}
 		if (element.getType() == Type.LIST_ITEM) {
